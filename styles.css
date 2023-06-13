@@ -1,0 +1,205 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  :root {
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+
+    --main-bg-blue: hsl(217, 54%, 11%);
+    --card-bg-blue: hsl(216, 50%, 16%);
+    --dark-blue-line: hsl(215, 32%, 27%);
+}
+
+/* Mobile ↓ */
+
+body {
+  min-height: 100vh;
+  background-color: var(--main-bg-blue);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: var(--card-bg-blue);
+  padding: 24px;
+  min-height: min-content;
+  max-width: 327px;
+  border-radius: 15px;
+  margin: 0 24px;
+}
+
+.overlay {
+  display: none;
+}
+
+.img-container {
+  position: relative;
+}
+
+.hdr-img {
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  color: var(--soft-blue);
+  margin-bottom: 16px;
+}
+
+.subtext {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.subtext-price {
+  display: flex;
+}
+
+.subtext-price > img {
+  margin-right: 7px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.subtext-info {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+.days-left {
+  display: flex;
+  align-items: center;
+}
+
+.days-left > img {
+  margin-right: 7.7px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.div-line {
+  margin-bottom: 16px;
+  border: solid 1px var(--dark-blue-line);
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  height: 33px;
+  width: 33px;
+  border: solid white 1px;
+  border-radius: 50px;
+  margin-right: 16px;
+}
+
+.creator > p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--soft-blue);
+}
+
+span {
+  color: white;
+}
+
+
+/* Desktop ↓ */
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 350px;
+    margin: 0;
+  }
+
+  .img-container:hover .overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(0, 255, 248, 0.5);
+  }
+
+  .card-title:hover {
+    color: var(--cyan);
+    cursor: pointer;
+  }
+
+  span:hover {
+    color: var(--cyan);
+    cursor: pointer;
+  }
+} 
+
+
